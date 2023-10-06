@@ -81,30 +81,66 @@
 
 </body>
 </html>
-
 <?php
+    // inicio de sesion y llama a conectarse con la bbdd
+    session_start(); 
+    include "conexion.php";
 
-    $correo = $_POST["correo"];
-    $contasena = $_POST["contrasena"];
+    // si los campos estan rellenados
+    if (isset($_POST['correo']) && isset($_POST['contrasena'])) {
 
-    try {
+        // funcion validar
+        function validate($data){
+           $data = trim($data);
+           $data = stripslashes($data);
+           $data = htmlspecialchars($data);
+           return $data;
+        }
+    
+        $email = validate($_POST['correo']);
+        $pass = validate($_POST['contrasena']);
+        
+        // si los campos estan vacios
+        if (empty($email)) {
+            header("Location: login.php?error=El_correo_es_obligatorio");
+            exit();
+            
+        }
+        else if(empty($pass)){
+            header("Location: login.php?error=La_contraseña_es_obligatoria");
+            exit();
+        }
+        // si los campos no estan vacios comprueba si son validos
+        else{
 
-        // variables de conexion
-        $usuarioDB = "root";
-        $contasenaDB = "";
-        $hostDB = "127.0.0.1";
-        $nombreDB = "reto1";
-
-        // arranca la conexion a la BBDD
-        $hostPDO = "mysql:host=$hostDB;dbname=$nombreDB;";
-        $miPDO = new PDO ($hostPDO, $usuarioDB , $contasenaDB);
-        // si es exitosa la conexion
-        echo "Conexion exitosa con la base de datos <br>";
-
-    }
-    catch (PDOException $e) {
-        echo "No se ha podido conectar con la BD<br>";
-        echo $e -> getMessage();
-        exit;
+            // solicita los datos de las credenciales introducidas
+            $sql = "SELECT * FROM usuario WHERE correo='". $email ."' AND contrasena='". $pass ."';";
+            $stmt = $miPDO->query($sql);
+            $stmt ->execute();
+           
+            // si encuentra un resultado (el usuario correcto)
+            if ($row = $stmt->fetch()) {
+                if ($row['correo'] === $email && $row['contrasena'] === $pass) {
+               
+                    // echo "Logged in!";
+                    $_SESSION['correo'] = $row['correo'];
+                    $_SESSION['nombre'] = $row['nombre'];
+                    $_SESSION['apellido'] = $row['apellido'];
+                    $_SESSION['id'] = $row['id'];
+                    header("Location: inicio.php");
+                    exit();
+               
+                }
+                else{
+                    header("Location: login.php?error=Usuario_o_contraseña_incorrectos");
+                    exit();
+                }
+            }
+            else{
+                header("Location: login.php?error=Usuario_o_contraseña_incorrectos");
+                exit();
+            }
+        }
     }
 ?>
+
