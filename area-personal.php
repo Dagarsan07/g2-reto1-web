@@ -3,27 +3,34 @@
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="area-personal.css">
     <title>Mi Perfil</title>
 </head>
 
 <body>
-    <div class="container mx-auto col-lg-10 col-md-11 col-sm-12">
+    <div class="container mx-auto col-lg-9 col-md-11 col-sm-12">
         <div class="row">
-            <p class="bg-danger col-lg-1">png</p>
+            <p class="bg-danger col-lg-2">png</p>
             <div class="col-lg-4 bg-success">
                 <p>Nombre: David García</p>
                 <p>Email: david@email.com</p>
             </div>
             <p class="col-lg-3 bg-info">Administrador</p>
         </div>
-        <div class="w-75 mx-auto">
-            <h1>MIS PUBLICACIONES</h1>
+        <div class="col-lg-10 mx-auto">
+            <h2>MIS PUBLICACIONES</h2>
             <div class="card mt-4">
-                <div class="card-body">
-                    <div class="card-title d-flex justify-content-between">
-                        <h2>Titulo</h2>
-                        <p>2020/01/01 10:00 - David Garcia Sanchez</p>
+                <div class="card-header">
+                    <div class="card-title d-flex justify-content-between align-items-center">
+                        <h5 class="mt-2">Titulo</h5>
+                        <div class="title-right d-flex flex-direction-row align-items-center">
+                            <button class="btn"><img src="trash.svg"></button>
+                            <button class="btn"><img src="pencil.svg"></button>
+                            <a>2020/01/01 10:00</a>
+                        </div>
                     </div>
+                </div>
+                <div class="card-body">
                     <p>
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus,
                         rem accusamus ut tempore totam quibusdam atque. Eveniet, veniam mollitia
@@ -35,11 +42,17 @@
                 </div>
             </div>
             <div class="card mt-4">
-                <div class="card-body">
-                    <div class="card-title d-flex justify-content-between">
-                        <h2>Titulo</h2>
-                        <p>2020/01/01 10:00 - David Garcia Sanchez</p>
+                <div class="card-header">
+                    <div class="card-title d-flex justify-content-between align-items-center">
+                        <h5 class="mt-2">Titulo</h5>
+                        <div class="title-right d-flex flex-direction-row align-items-center">
+                            <button class="btn"><img src="trash.svg"></button>
+                            <button class="btn"><img src="pencil.svg"></button>
+                            <a>2020/01/01 10:00</a>
+                        </div>
                     </div>
+                </div>
+                <div class="card-body">
                     <p>
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus,
                         rem accusamus ut tempore totam quibusdam atque. Eveniet, veniam mollitia
@@ -51,11 +64,17 @@
                 </div>
             </div>
             <div class="card mt-4">
-                <div class="card-body">
-                    <div class="card-title d-flex justify-content-between">
-                        <h2>Titulo</h2>
-                        <p>2020/01/01 10:00 - David Garcia Sanchez</p>
+                <div class="card-header">
+                    <div class="card-title d-flex justify-content-between align-items-center">
+                        <h5 class="mt-2">Titulo</h5>
+                        <div class="title-right d-flex flex-direction-row align-items-center">
+                            <button class="btn"><img src="trash.svg"></button>
+                            <button class="btn"><img src="pencil.svg"></button>
+                            <a>2020/01/01 10:00</a>
+                        </div>
                     </div>
+                </div>
+                <div class="card-body">
                     <p>
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus,
                         rem accusamus ut tempore totam quibusdam atque. Eveniet, veniam mollitia
