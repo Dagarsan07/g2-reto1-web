@@ -15,7 +15,7 @@ header, #login{
     display: flex;
     flex-direction: column;
     font-family: 'PT Sans Narrow';
-    font-size: 24px;
+    font-size: 30px;
     font-style: normal;
     font-weight: 400;
     line-height: 150%; /* 36px */
@@ -42,7 +42,7 @@ header, #login{
 
 .text{
     font-family: 'PT Sans Narrow';
-    font-size: 14px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 150%; /* 21px */
@@ -69,6 +69,14 @@ footer{
     float:left;
 }
 
+#info > img{
+    margin-left:20px;
+}
+
 #rrss{
     float:right;
+}
+
+#rrss > img{
+    margin-right:20px;
 }
