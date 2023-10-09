@@ -8,25 +8,27 @@
 </head>
 
 <body>
-    <div class="container mx-auto col-lg-9 col-md-11 col-sm-12">
-        <div class="row">
-            <p class="bg-danger col-lg-2">png</p>
-            <div class="col-lg-4 bg-success">
+    <div class="container mx-auto col-lg-9 col-sm-10 col-11">
+        <div class="row d-flex align-items-center fs-5" id="datos-perfil">
+            <img class="col-sm-2 col-3" src="perfil-prueba.png">
+            <div class="col-sm-6 col-5 bg-success">
                 <p>Nombre: David García</p>
                 <p>Email: david@email.com</p>
             </div>
-            <p class="col-lg-3 bg-info">Administrador</p>
+            <p class="col-sm-3 col-4 bg-info text-end">Administrador</p>
         </div>
-        <div class="col-lg-10 mx-auto">
+        <div class="col-md-10 mx-auto mt-4">
             <h2>MIS PUBLICACIONES</h2>
             <div class="card mt-4">
                 <div class="card-header">
-                    <div class="card-title d-flex justify-content-between align-items-center">
-                        <h5 class="mt-2">Titulo</h5>
-                        <div class="title-right d-flex flex-direction-row align-items-center">
-                            <button class="btn"><img src="trash.svg"></button>
-                            <button class="btn"><img src="pencil.svg"></button>
-                            <a>2020/01/01 10:00</a>
+                    <div class="card-title post-title">
+                        <h5 class="mt-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus,</h5>
+                        <div class="post-details">
+                            <a>2020/01/01</a>
+                            <div class="post-actions d-flex flex-direction-row">
+                                <button class="btn"><img src="pencil.svg"></button>
+                                <button class="btn"><img src="trash.svg"></button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -43,12 +45,14 @@
             </div>
             <div class="card mt-4">
                 <div class="card-header">
-                    <div class="card-title d-flex justify-content-between align-items-center">
-                        <h5 class="mt-2">Titulo</h5>
-                        <div class="title-right d-flex flex-direction-row align-items-center">
-                            <button class="btn"><img src="trash.svg"></button>
-                            <button class="btn"><img src="pencil.svg"></button>
-                            <a>2020/01/01 10:00</a>
+                    <div class="card-title post-title">
+                        <h5 class="mt-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus,</h5>
+                        <div class="post-details">
+                            <a>2020/01/01</a>
+                            <div class="post-actions d-flex flex-direction-row">
+                                <button class="btn"><img src="pencil.svg"></button>
+                                <button class="btn"><img src="trash.svg"></button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -65,12 +69,14 @@
             </div>
             <div class="card mt-4">
                 <div class="card-header">
-                    <div class="card-title d-flex justify-content-between align-items-center">
-                        <h5 class="mt-2">Titulo</h5>
-                        <div class="title-right d-flex flex-direction-row align-items-center">
-                            <button class="btn"><img src="trash.svg"></button>
-                            <button class="btn"><img src="pencil.svg"></button>
-                            <a>2020/01/01 10:00</a>
+                    <div class="card-title post-title">
+                        <h5 class="mt-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus,</h5>
+                        <div class="post-details">
+                            <a>2020/01/01</a>
+                            <div class="post-actions d-flex flex-direction-row">
+                                <button class="btn"><img src="pencil.svg"></button>
+                                <button class="btn"><img src="trash.svg"></button>
+                            </div>
                         </div>
                     </div>
                 </div>
