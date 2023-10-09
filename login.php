@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php session_start(); ?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -81,9 +82,30 @@
 
 </body>
 </html>
+<script>
+    // si los campos estan vacios muestra un mensaje
+    contador = 0;
+    function vacio(contador) {
+        if (contador == 1) {
+            alert("Error: El correo es obligatorio");
+            document.getElementsByTagName("form").addEventListener("click", function(event){event.preventDefault()});
+            contador = 0;
+        }
+        else if (contador == 2) {
+            alert("Error: La contraseña es obligatoria");
+            document.getElementsByTagName("form").addEventListener("click", function(event){event.preventDefault()});
+            contador = 0;
+        }
+    }
+    // si se han metido mal los datos
+    function incorrecto() {
+        alert("Error: Usuario o contraseña incorrectos");
+        document.getElementsByTagName("form").addEventListener("click", function(event){event.preventDefault()});
+    }
+</script>
 <?php
     // inicio de sesion y llama a conectarse con la bbdd
-    session_start(); 
+    //session_start(); 
     include "conexion.php";
 
     // si los campos estan rellenados
@@ -102,12 +124,20 @@
         
         // si los campos estan vacios
         if (empty($email)) {
-            header("Location: login.php?error=El_correo_es_obligatorio");
+            echo    "<script>
+                        contador = 1;
+                        vacio(contador);
+                    </script>";
+            //header("Location: login.php?error=El_correo_es_obligatorio");
             exit();
             
         }
         else if(empty($pass)){
-            header("Location: login.php?error=La_contraseña_es_obligatoria");
+            echo    "<script>
+                        contador = 2;
+                        vacio(contador);
+                    </script>";
+            //header("Location: login.php?error=El_correo_es_obligatorio");
             exit();
         }
         // si los campos no estan vacios comprueba si son validos
@@ -132,12 +162,14 @@
                
                 }
                 else{
-                    header("Location: login.php?error=Usuario_o_contraseña_incorrectos");
+                    echo    "<script>incorrecto();</script>";
+                    //header("Location: login.php?error=Usuario_o_contraseña_incorrectos");
                     exit();
                 }
             }
             else{
-                header("Location: login.php?error=Usuario_o_contraseña_incorrectos");
+                echo    "<script>incorrecto();</script>";
+                //header("Location: login.php?error=Usuario_o_contraseña_incorrectos");
                 exit();
             }
         }
