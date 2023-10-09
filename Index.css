@@ -61,22 +61,31 @@ header, #login{
 
 footer{
     width: 100%;
-    height: 82px;
+    height: 85px;
     background: #D9D9D9;
 }
 
 #info{
     float:left;
+    display:flex;
+    flex-direction: row;
 }
 
 #info > img{
-    margin-left:20px;
+    margin: auto 20px;
+    width: 60px;
+    height: 51px;
+}
+
+#info > div > p {
+    margin:0;
+    font-size: 10px;
 }
 
 #rrss{
     float:right;
 }
 
-#rrss > img{
+#rrss > a{
     margin-right:20px;
 }
