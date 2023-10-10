@@ -1,6 +1,6 @@
 <!DOCTYPE html>
+<?php session_start();?>
 <html lang="en">
-<?php session_start(); ?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,6 +22,24 @@
         display: flex;
         align-items: center;
         flex-direction: column;
+    }
+
+    #submit-box {
+        display: flex;
+        align-items: center;
+    }
+
+    #required-label {
+        margin-left: 25%;
+    }
+
+    .space {
+        margin-right: 2%;
+    }
+
+    .required {
+        font-weight: bold;
+        color: red;
     }
 
     /* Movil */
@@ -60,18 +78,22 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <form action="login.php" method="post">
+                    <form id="login" action="login.php" method="post" onsubmit="validar()">
                         <div class="mb-3">
-                            <label class="form-label">Email:</label>
-                            <input type="email" class="form-control" id="" name="correo">
+                            <label class="form-label">Email: <label class="required">*</label></label>
+                            <input type="email" class="form-control" name="correo" required pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" placeholder="usuario@email.com">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Contraseña:</label>
-                            <input type="password" class="form-control" id="" name="contrasena">
+                            <label class="form-label">Contraseña: <label class="required">*</label></label>
+                            <input type="password" class="form-control" name="contrasena" required placeholder="Contraseña">
+                            
                         </div>
                         <div class="mb-3">
-                            <input type="submit" value="Entrar" class="btn btn-primary">
-                            <a class="btn btn-success">Registrarse</a>
+                            <div id="submit-box">
+                                <input type="submit" value="Entrar" class="btn btn-primary space">
+                                <a class="btn btn-success space">Registrarse</a>
+                                <label id="required-label"><label class="required">*</label>Obligatorio</label>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -83,25 +105,11 @@
 </body>
 </html>
 <script>
-    // si los campos estan vacios muestra un mensaje
-    contador = 0;
-    function vacio(contador) {
-        if (contador == 1) {
-            alert("Error: El correo es obligatorio");
-            document.getElementsByTagName("form").addEventListener("click", function(event){event.preventDefault()});
-            contador = 0;
-        }
-        else if (contador == 2) {
-            alert("Error: La contraseña es obligatoria");
-            document.getElementsByTagName("form").addEventListener("click", function(event){event.preventDefault()});
-            contador = 0;
-        }
+    function validar() {
+        alert ("ae")
     }
-    // si se han metido mal los datos
-    function incorrecto() {
-        alert("Error: Usuario o contraseña incorrectos");
-        document.getElementsByTagName("form").addEventListener("click", function(event){event.preventDefault()});
-    }
+
+    
 </script>
 <?php
     // inicio de sesion y llama a conectarse con la bbdd
@@ -124,20 +132,12 @@
         
         // si los campos estan vacios
         if (empty($email)) {
-            echo    "<script>
-                        contador = 1;
-                        vacio(contador);
-                    </script>";
-            //header("Location: login.php?error=El_correo_es_obligatorio");
+            header("Location: login.php?error=El_correo_es_obligatorio");
             exit();
             
         }
         else if(empty($pass)){
-            echo    "<script>
-                        contador = 2;
-                        vacio(contador);
-                    </script>";
-            //header("Location: login.php?error=El_correo_es_obligatorio");
+            header("Location: login.php?error=La_contraseña_es_obligatoria");
             exit();
         }
         // si los campos no estan vacios comprueba si son validos
@@ -162,14 +162,12 @@
                
                 }
                 else{
-                    echo    "<script>incorrecto();</script>";
-                    //header("Location: login.php?error=Usuario_o_contraseña_incorrectos");
+                    header("Location: login.php?error=Usuario_o_contraseña_incorrectos");
                     exit();
                 }
             }
             else{
-                echo    "<script>incorrecto();</script>";
-                //header("Location: login.php?error=Usuario_o_contraseña_incorrectos");
+                header("Location: login.php?error=Usuario_o_contraseña_incorrectos");
                 exit();
             }
         }
